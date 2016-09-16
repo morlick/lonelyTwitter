@@ -1,3 +1,4 @@
+
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.BufferedReader;
@@ -23,7 +24,7 @@ public class LonelyTwitterActivity extends Activity {
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
-	
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,32 @@ public class LonelyTwitterActivity extends Activity {
 			public void onClick(View v) {
 				setResult(RESULT_OK);
 				String text = bodyText.getText().toString();
+
+
+				Date theDate = new Date();
+				Tweet newTweet = new NormalTweet(text);
+				try {
+					newTweet.setMessage("test");
+				} catch (TweetTooLongException e) {
+					e.printStackTrace();
+				}
+				newTweet.getMessage();
+
+				ImportantTweet newImportantTweet = new ImportantTweet(text);
+				newImportantTweet.getMessage();
+
+				ArrayList<Tweet> tweetList = new ArrayList<Tweet>();
+				tweetList.add(newTweet);
+				tweetList.add(newImportantTweet);
+
+				CurrentMood mood1 = new HappyMood();
+				CurrentMood mood2 = new SadMood();
+
+				ArrayList<CurrentMood> moodList = new ArrayList<CurrentMood>();
+				moodList.add(mood1);
+				moodList.add(mood2);
+
+
 				saveInFile(text, new Date(System.currentTimeMillis()));
 				finish();
 
@@ -76,7 +103,7 @@ public class LonelyTwitterActivity extends Activity {
 		}
 		return tweets.toArray(new String[tweets.size()]);
 	}
-	
+
 	private void saveInFile(String text, Date date) {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,
