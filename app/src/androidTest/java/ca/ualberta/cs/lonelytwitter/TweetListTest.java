@@ -35,7 +35,6 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
 
     public void testChronologicalList() {
         TweetList list = new TweetList();
-
         Tweet tweet = new NormalTweet("test");
         Tweet tweet2 = new NormalTweet("test 2");
         ArrayList<Tweet> tweets = new ArrayList<Tweet>();
