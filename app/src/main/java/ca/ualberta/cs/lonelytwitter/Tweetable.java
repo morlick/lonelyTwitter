@@ -1,7 +1,7 @@
 package ca.ualberta.cs.lonelytwitter;
 
 
-import java.util.Date;
+// removed unused import
 
 public interface Tweetable {
     String getMessage(); //removed unnecessary public modifier (not needed in interface)

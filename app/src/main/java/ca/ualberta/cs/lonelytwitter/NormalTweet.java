@@ -6,7 +6,6 @@ public class NormalTweet extends Tweet {
         super(message);
     }
 
-    @Override
     public Boolean isImportant() {
         return Boolean.FALSE;
     }
