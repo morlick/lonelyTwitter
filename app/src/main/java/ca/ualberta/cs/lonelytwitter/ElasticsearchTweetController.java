@@ -1,5 +1,6 @@
 package ca.ualberta.cs.lonelytwitter;
 
+//removed unused imports
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -10,7 +11,6 @@ import com.searchly.jestdroid.JestDroidClient;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.searchbox.client.JestClient;
 import io.searchbox.core.DocumentResult;
 import io.searchbox.core.Index;
 import io.searchbox.core.Search;
@@ -24,6 +24,8 @@ public class ElasticsearchTweetController {
 
     // TODO we need a function that gets tweets!
     public static class GetTweetsTask extends AsyncTask<String, Void, ArrayList<NormalTweet>> {
+
+
         @Override
         protected ArrayList<NormalTweet> doInBackground(String... search_parameters) {
             verifySettings();
